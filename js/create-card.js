@@ -2,20 +2,20 @@ import {
   getWordEnding,
 } from './util.js';
 
-const usersAdvertimentsTemplate = document.querySelector('#card').content.querySelector('.popup');
+const usersAdvertisementsTemplate = document.querySelector('#card').content.querySelector('.popup');
 
-const accomodationTypeNames = new Map();
-accomodationTypeNames.set('palace', 'Дворец');
-accomodationTypeNames.set('flat', 'Квартира');
-accomodationTypeNames.set('house', 'Дом');
-accomodationTypeNames.set('bungalow', 'Бунгало');
-accomodationTypeNames.set('hotel', 'Отель');
+const accommodationTypeNames = new Map();
+accommodationTypeNames.set('palace', 'Дворец');
+accommodationTypeNames.set('flat', 'Квартира');
+accommodationTypeNames.set('house', 'Дом');
+accommodationTypeNames.set('bungalow', 'Бунгало');
+accommodationTypeNames.set('hotel', 'Отель');
 
 const getAdvertisementElement = ({
   author,
   offer
 }) => {
-  const advertisementElement = usersAdvertimentsTemplate.cloneNode(true);
+  const advertisementElement = usersAdvertisementsTemplate.cloneNode(true);
 
   const popupAvatar = advertisementElement.querySelector('.popup__avatar');
   popupAvatar.src = author.avatar;
@@ -30,7 +30,7 @@ const getAdvertisementElement = ({
   popupPrice.textContent = offer.price;
 
   const popupType = advertisementElement.querySelector('.popup__type');
-  popupType.textContent = accomodationTypeNames.get(offer.type);
+  popupType.textContent = accommodationTypeNames.get(offer.type);
 
   const popupCapacity = advertisementElement.querySelector('.popup__text--capacity');
 

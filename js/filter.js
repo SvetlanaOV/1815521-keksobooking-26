@@ -70,13 +70,13 @@ const checkFeatures = ({
   return false;
 };
 
-const filterAdvertisments = (advertisments) => {
+const filterAdvertisements = (advertisements) => {
   markerGroup.clearLayers();
 
-  const advertismentsFilter = advertisments.filter((advertisment) => (checkAccommodationType(advertisment) && checkPrice(advertisment) &&
-  checkRoomsCount(advertisment) && checkGuestsCount(advertisment) && checkFeatures(advertisment))).slice(0, CARDS_COUNT);
+  const advertisementsFilter = advertisements.filter((advertisement) => (checkAccommodationType(advertisement) && checkPrice(advertisement) &&
+  checkRoomsCount(advertisement) && checkGuestsCount(advertisement) && checkFeatures(advertisement))).slice(0, CARDS_COUNT);
 
-  advertismentsFilter.forEach(createMarker);
+  advertisementsFilter.forEach(createMarker);
 };
 
 const onFilterChange = (cb) => {
@@ -86,6 +86,6 @@ const onFilterChange = (cb) => {
 
 
 export {
-  filterAdvertisments,
+  filterAdvertisements,
   onFilterChange
 };

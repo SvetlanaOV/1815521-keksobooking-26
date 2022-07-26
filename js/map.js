@@ -6,7 +6,7 @@ import {
   getAdvertisementElement
 } from './create-card.js';
 import {
-  filterAdvertisments,
+  filterAdvertisements,
   onFilterChange
 } from './filter.js';
 import {
@@ -46,7 +46,7 @@ const showMapMarkers = () => dataFromServer.then(
 
 const filterMapMarkers = () => dataFromServer.then((data) =>
   onFilterChange(debounce(() => {
-    filterAdvertisments(data);
+    filterAdvertisements(data);
   })));
 
 const map = L.map('map-canvas')
@@ -97,17 +97,17 @@ const icon = L.icon({
   iconAnchor: [20, 40],
 });
 
-function createMarker(advertisment) {
+function createMarker(advertisement) {
   const marker = L.marker({
-    lat: advertisment.location.lat,
-    lng: advertisment.location.lng,
+    lat: advertisement.location.lat,
+    lng: advertisement.location.lng,
   }, {
     icon,
   }, );
 
   marker
     .addTo(markerGroup)
-    .bindPopup(getAdvertisementElement(advertisment));
+    .bindPopup(getAdvertisementElement(advertisement));
 }
 
 const resetMap = () => {
